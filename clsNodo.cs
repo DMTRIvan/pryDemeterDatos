@@ -13,7 +13,7 @@ namespace pryDemeterDatos
         private String tra;
         private clsNodo sig;
         private clsNodo ant; //para la estructura lista doble
-
+        //nariz
 
         //Santi es un gil
 
