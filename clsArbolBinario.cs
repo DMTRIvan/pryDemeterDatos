@@ -16,7 +16,7 @@ namespace pryDemeterDatos
             get { return Inicio;}
             set { Inicio = value;}
         }
-
+        //jajajaaj
         public void Agregar(clsNodo Nvo)
         {
             Nvo.Izquierdo = null;
