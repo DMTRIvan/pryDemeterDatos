@@ -13,9 +13,7 @@ namespace pryDemeterDatos
         private String tra;
         private clsNodo sig;
         private clsNodo ant; //para la estructura lista doble
-        //nariz
-
-        //Santi es un gil
+        
 
         //propiedades, para sacarle el privado a las variables
         public Int32 Codigo

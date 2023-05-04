@@ -14,7 +14,7 @@ namespace pryDemeterDatos
         public clsNodo Raiz
         {
             get { return Inicio;}
-            set { Inicio = value; }
+            set { Inicio = value;}
         }
 
         public void Agregar(clsNodo Nvo)
@@ -52,21 +52,96 @@ namespace pryDemeterDatos
             }
         }
 
-        public void Recorrer(ListBox Lista)
+        //Comienzan los RecorrerInOrdenAsc 
+        public void RecorrerInOrdenAsc(ListBox Lista)
         {
             Lista.Items.Clear();
             InOrdenAsc(Lista, Raiz);
         }
-        public void Recorrer(ComboBox Combo)
+        public void RecorrerInOrdenAsc(ComboBox Combo)
         {
             Combo.Items.Clear();
             InOrdenAsc(Combo, Raiz);
         }
-        public void Recorrer(DataGridView Grilla)
+        public void RecorrerInOrdenAsc(DataGridView Grilla)
         {
             Grilla.Rows.Clear();
             InOrdenAsc(Grilla, Raiz);
         }
+        public void RecorrerInOrdenAsc(TreeView Tree)
+        {
+            Tree.Nodes.Clear();
+            InOrdenAsc(Tree, Raiz);
+        }
+
+        //Comienzan los RecorrerInOrdenDes
+        public void RecorrerInOrdenDes(ListBox Lista)
+        {
+            Lista.Items.Clear();
+            InOrdenDes(Lista, Raiz);
+        }
+        public void RecorrerInOrdenDes(ComboBox Combo)
+        {
+            Combo.Items.Clear();
+            InOrdenDes(Combo, Raiz);
+        }
+        public void RecorrerInOrdenDes(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            InOrdenDes(Grilla, Raiz);
+        }
+        public void RecorrerInOrdenDes(TreeView Tree)
+        {
+            Tree.Nodes.Clear();
+            InOrdenDes(Tree, Raiz);
+        }
+
+        //Comienzan los RecorrerPreOrden
+        public void RecorrerPreOrden(ListBox Lista)
+        {
+            Lista.Items.Clear();
+            PreOrden(Lista, Raiz);
+        }
+        public void RecorrerPreOrden(ComboBox Combo)
+        {
+            Combo.Items.Clear();
+            PreOrden(Combo, Raiz);
+        }
+        public void RecorrerPreOrden(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            PreOrden(Grilla, Raiz);
+        }
+        public void RecorrerPreOrden(TreeView Tree)
+        {
+            Tree.Nodes.Clear();
+            PreOrden(Tree, Raiz);
+        }
+
+        //Comienzan los RecorrerPostOrden
+        public void RecorrerPostOrden(ListBox Lista)
+        {
+            Lista.Items.Clear();
+            PostOrden(Lista, Raiz);
+        }
+        public void RecorrerPostOrden(ComboBox Combo)
+        {
+            Combo.Items.Clear();
+            PostOrden(Combo, Raiz);
+        }
+        public void RecorrerPostOrden(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            PostOrden(Grilla, Raiz);
+        }
+        public void RecorrerPostOrden(TreeView Tree)
+        {
+            Tree.Nodes.Clear();
+            PostOrden(Tree, Raiz);
+        }
+
+
+
 
 
 
@@ -223,12 +298,59 @@ namespace pryDemeterDatos
             if (R.Izquierdo != null) PostOrden(Grilla, R.Izquierdo);
             if (R.Derecho != null) PostOrden(Grilla, R.Derecho);
             //Agrego una nueva fila a la grilla con los datos del nodo
-            DataGridViewRow row = new DataGridViewRow();
-            row.CreateCells(Grilla, R.Codigo, R.Nombre, R.Tramite); // Agrega las columnas necesarias
+            //DataGridViewRow row = new DataGridViewRow();
+            //row.CreateCells(Grilla, R.Codigo, R.Nombre, R.Tramite); // Agrega las columnas necesarias
             Grilla.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
             //Grilla.Rows.Add(row);
-            Grilla.Refresh(); // Refresca la grilla después de agregar la fila
         }
+
+
+        ////Comienzan los TreeView
+        ////in orden ascendente para TreeView
+        //public void InOrdenAsc(TreeView Tree, clsNodo R)
+        //{
+        //    if (R.Izquierdo != null)
+        //    {
+        //        InOrdenAsc(Tree, R.Izquierdo);
+        //    }
+        //    Tree.Nodes.Add(R.Codigo.ToString());
+        //    if (R.Derecho != null)
+        //    {
+        //        InOrdenAsc(Tree, R.Derecho);
+        //    }
+        //}
+
+        ////in orden descendente para TreeView
+        //public void InOrdenDes(TreeView Tree, clsNodo R)
+        //{
+
+        //    if (R.Derecho != null)
+        //    {
+        //        InOrdenDes(Tree, R.Derecho);
+        //    }
+        //    Tree.Nodes.Add(R.Codigo.ToString());
+        //    if (R.Izquierdo != null)
+        //    {
+        //        InOrdenDes(Tree, R.Izquierdo);
+        //    }
+        //}
+        ////Pre orden para TreeView (R-I-D)
+        //public void PreOrden(TreeView Tree, clsNodo R)
+        //{
+        //    Tree.Nodes.Add(R.Codigo.ToString());
+        //    if (R.Izquierdo != null) PreOrden(Tree, R.Izquierdo);
+        //    if (R.Derecho != null) PreOrden(Tree, R.Derecho);
+        //}
+
+        ////Post orden para TreeView (I-D-R)
+        //public void PostOrden(TreeView Tree, clsNodo R)
+        //{
+        //    if (R.Izquierdo != null) PostOrden(Tree, R.Izquierdo);
+        //    if (R.Derecho != null) PostOrden(Tree, R.Derecho);
+        //    Tree.Nodes.Add(R.Codigo.ToString());
+        //}
+
+
 
 
     }

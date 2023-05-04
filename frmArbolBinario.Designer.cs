@@ -48,11 +48,21 @@ namespace pryDemeterDatos
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.pbGrafico = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tvLista = new System.Windows.Forms.TreeView();
+            this.gbOrdenar = new System.Windows.Forms.GroupBox();
+            this.rbInOrdenAsc = new System.Windows.Forms.RadioButton();
+            this.rbInOrdenDes = new System.Windows.Forms.RadioButton();
+            this.rbPreOrden = new System.Windows.Forms.RadioButton();
+            this.rbPostOrden = new System.Windows.Forms.RadioButton();
+            this.cmdEquilibrar = new System.Windows.Forms.Button();
             this.mrcListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.mrcNuevoElemento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrafico)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.gbOrdenar.SuspendLayout();
             this.SuspendLayout();
             // 
             // mrcListado
@@ -85,6 +95,7 @@ namespace pryDemeterDatos
             this.dgvGrilla.Name = "dgvGrilla";
             this.dgvGrilla.Size = new System.Drawing.Size(344, 134);
             this.dgvGrilla.TabIndex = 0;
+            this.dgvGrilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrilla_CellContentClick);
             // 
             // Codigo
             // 
@@ -106,9 +117,9 @@ namespace pryDemeterDatos
             this.groupBox1.Controls.Add(this.lstCodigo);
             this.groupBox1.Controls.Add(this.cmdEliminar);
             this.groupBox1.Controls.Add(this.lblCodigoEliminar);
-            this.groupBox1.Location = new System.Drawing.Point(405, 12);
+            this.groupBox1.Location = new System.Drawing.Point(396, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 162);
+            this.groupBox1.Size = new System.Drawing.Size(209, 98);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Elemento eliminado";
@@ -224,11 +235,99 @@ namespace pryDemeterDatos
             this.pbGrafico.TabIndex = 17;
             this.pbGrafico.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tvLista);
+            this.groupBox2.Location = new System.Drawing.Point(612, 59);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 306);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lista de Arbol";
+            // 
+            // tvLista
+            // 
+            this.tvLista.Location = new System.Drawing.Point(6, 19);
+            this.tvLista.Name = "tvLista";
+            this.tvLista.Size = new System.Drawing.Size(188, 271);
+            this.tvLista.TabIndex = 21;
+            // 
+            // gbOrdenar
+            // 
+            this.gbOrdenar.Controls.Add(this.rbPostOrden);
+            this.gbOrdenar.Controls.Add(this.rbPreOrden);
+            this.gbOrdenar.Controls.Add(this.rbInOrdenDes);
+            this.gbOrdenar.Controls.Add(this.rbInOrdenAsc);
+            this.gbOrdenar.Location = new System.Drawing.Point(396, 116);
+            this.gbOrdenar.Name = "gbOrdenar";
+            this.gbOrdenar.Size = new System.Drawing.Size(209, 76);
+            this.gbOrdenar.TabIndex = 5;
+            this.gbOrdenar.TabStop = false;
+            this.gbOrdenar.Text = "Forma de ordenar";
+            // 
+            // rbInOrdenAsc
+            // 
+            this.rbInOrdenAsc.AutoSize = true;
+            this.rbInOrdenAsc.Checked = true;
+            this.rbInOrdenAsc.Location = new System.Drawing.Point(9, 20);
+            this.rbInOrdenAsc.Name = "rbInOrdenAsc";
+            this.rbInOrdenAsc.Size = new System.Drawing.Size(81, 17);
+            this.rbInOrdenAsc.TabIndex = 0;
+            this.rbInOrdenAsc.TabStop = true;
+            this.rbInOrdenAsc.Text = "InOrdenAsc";
+            this.rbInOrdenAsc.UseVisualStyleBackColor = true;
+            this.rbInOrdenAsc.CheckedChanged += new System.EventHandler(this.rbInOrdenAsc_CheckedChanged);
+            // 
+            // rbInOrdenDes
+            // 
+            this.rbInOrdenDes.AutoSize = true;
+            this.rbInOrdenDes.Location = new System.Drawing.Point(7, 52);
+            this.rbInOrdenDes.Name = "rbInOrdenDes";
+            this.rbInOrdenDes.Size = new System.Drawing.Size(82, 17);
+            this.rbInOrdenDes.TabIndex = 1;
+            this.rbInOrdenDes.Text = "InOrdenDes";
+            this.rbInOrdenDes.UseVisualStyleBackColor = true;
+            this.rbInOrdenDes.CheckedChanged += new System.EventHandler(this.rbInOrdenDes_CheckedChanged);
+            // 
+            // rbPreOrden
+            // 
+            this.rbPreOrden.AutoSize = true;
+            this.rbPreOrden.Location = new System.Drawing.Point(101, 20);
+            this.rbPreOrden.Name = "rbPreOrden";
+            this.rbPreOrden.Size = new System.Drawing.Size(70, 17);
+            this.rbPreOrden.TabIndex = 2;
+            this.rbPreOrden.Text = "PreOrden";
+            this.rbPreOrden.UseVisualStyleBackColor = true;
+            this.rbPreOrden.CheckedChanged += new System.EventHandler(this.rbPreOrden_CheckedChanged);
+            // 
+            // rbPostOrden
+            // 
+            this.rbPostOrden.AutoSize = true;
+            this.rbPostOrden.Location = new System.Drawing.Point(99, 52);
+            this.rbPostOrden.Name = "rbPostOrden";
+            this.rbPostOrden.Size = new System.Drawing.Size(75, 17);
+            this.rbPostOrden.TabIndex = 3;
+            this.rbPostOrden.Text = "PostOrden";
+            this.rbPostOrden.UseVisualStyleBackColor = true;
+            this.rbPostOrden.CheckedChanged += new System.EventHandler(this.rbPostOrden_CheckedChanged);
+            // 
+            // cmdEquilibrar
+            // 
+            this.cmdEquilibrar.Location = new System.Drawing.Point(641, 22);
+            this.cmdEquilibrar.Name = "cmdEquilibrar";
+            this.cmdEquilibrar.Size = new System.Drawing.Size(154, 23);
+            this.cmdEquilibrar.TabIndex = 21;
+            this.cmdEquilibrar.Text = "Equilibrar";
+            this.cmdEquilibrar.UseVisualStyleBackColor = true;
+            // 
             // frmArbolBinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 381);
+            this.ClientSize = new System.Drawing.Size(824, 381);
+            this.Controls.Add(this.cmdEquilibrar);
+            this.Controls.Add(this.gbOrdenar);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.mrcListado);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mrcNuevoElemento);
@@ -242,6 +341,9 @@ namespace pryDemeterDatos
             this.mrcNuevoElemento.ResumeLayout(false);
             this.mrcNuevoElemento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrafico)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.gbOrdenar.ResumeLayout(false);
+            this.gbOrdenar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +369,13 @@ namespace pryDemeterDatos
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.PictureBox pbGrafico;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TreeView tvLista;
+        private System.Windows.Forms.GroupBox gbOrdenar;
+        private System.Windows.Forms.RadioButton rbPostOrden;
+        private System.Windows.Forms.RadioButton rbPreOrden;
+        private System.Windows.Forms.RadioButton rbInOrdenDes;
+        private System.Windows.Forms.RadioButton rbInOrdenAsc;
+        private System.Windows.Forms.Button cmdEquilibrar;
     }
 }
