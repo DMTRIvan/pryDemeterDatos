@@ -30,28 +30,28 @@ namespace pryDemeterDatos
                 objArbol.RecorrerInOrdenAsc(lbListado);
                 objArbol.RecorrerInOrdenAsc(lstCodigo);
                 objArbol.RecorrerInOrdenAsc(dgvGrilla);
-                objArbol.RecorrerInOrdenAsc(tvLista);
+                //objArbol.RecorrerInOrdenAsc(tvLista);
             }
             if (rbInOrdenDes.Checked == true)
             {
                 objArbol.RecorrerInOrdenDes(lbListado);
                 objArbol.RecorrerInOrdenDes(lstCodigo);
                 objArbol.RecorrerInOrdenDes(dgvGrilla);
-                objArbol.RecorrerInOrdenDes(tvLista);
+                //objArbol.RecorrerInOrdenDes(tvLista);
             }
             if (rbPreOrden.Checked == true)
             {
                 objArbol.RecorrerPreOrden(lbListado);
                 objArbol.RecorrerPreOrden(lstCodigo);
                 objArbol.RecorrerPreOrden(dgvGrilla);
-                objArbol.RecorrerPreOrden(tvLista);
+                //objArbol.RecorrerPreOrden(tvLista);
             }
             if (rbPostOrden.Checked == true)
             {
                 objArbol.RecorrerPostOrden(lbListado);
                 objArbol.RecorrerPostOrden(lstCodigo);
                 objArbol.RecorrerPostOrden(dgvGrilla);
-                objArbol.RecorrerPostOrden(tvLista);
+                //objArbol.RecorrerPostOrden(tvLista);
             }
 
             txtCodigo.Text = "";
@@ -66,7 +66,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerInOrdenDes(lbListado);
             objArbol.RecorrerInOrdenDes(lstCodigo);
             objArbol.RecorrerInOrdenDes(dgvGrilla);
-            objArbol.RecorrerInOrdenDes(tvLista);
+            //objArbol.RecorrerInOrdenDes(tvLista);
             }
         }
 
@@ -77,7 +77,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerInOrdenAsc(lbListado);
             objArbol.RecorrerInOrdenAsc(lstCodigo);
             objArbol.RecorrerInOrdenAsc(dgvGrilla);
-            objArbol.RecorrerInOrdenAsc(tvLista);
+            //objArbol.RecorrerInOrdenAsc(tvLista);
             }
         }
 
@@ -88,7 +88,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerPreOrden(lbListado);
             objArbol.RecorrerPreOrden(lstCodigo);
             objArbol.RecorrerPreOrden(dgvGrilla);
-            objArbol.RecorrerPreOrden(tvLista);
+            //objArbol.RecorrerPreOrden(tvLista);
             }
         }
 
@@ -99,7 +99,7 @@ namespace pryDemeterDatos
                 objArbol.RecorrerPostOrden(lbListado);
                 objArbol.RecorrerPostOrden(lstCodigo);
                 objArbol.RecorrerPostOrden(dgvGrilla);
-                objArbol.RecorrerPostOrden(tvLista);
+                //objArbol.RecorrerPostOrden(tvLista);
             }
            
         }

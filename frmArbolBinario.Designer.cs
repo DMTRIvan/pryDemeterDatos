@@ -29,6 +29,7 @@ namespace pryDemeterDatos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArbolBinario));
             this.mrcListado = new System.Windows.Forms.GroupBox();
             this.lbListado = new System.Windows.Forms.ListBox();
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
@@ -51,10 +52,10 @@ namespace pryDemeterDatos
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tvLista = new System.Windows.Forms.TreeView();
             this.gbOrdenar = new System.Windows.Forms.GroupBox();
-            this.rbInOrdenAsc = new System.Windows.Forms.RadioButton();
-            this.rbInOrdenDes = new System.Windows.Forms.RadioButton();
-            this.rbPreOrden = new System.Windows.Forms.RadioButton();
             this.rbPostOrden = new System.Windows.Forms.RadioButton();
+            this.rbPreOrden = new System.Windows.Forms.RadioButton();
+            this.rbInOrdenDes = new System.Windows.Forms.RadioButton();
+            this.rbInOrdenAsc = new System.Windows.Forms.RadioButton();
             this.cmdEquilibrar = new System.Windows.Forms.Button();
             this.mrcListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
@@ -227,7 +228,7 @@ namespace pryDemeterDatos
             // 
             // pbGrafico
             // 
-            this.pbGrafico.Image = global::pryDemeterDatos.Properties.Resources.pila;
+            this.pbGrafico.Image = ((System.Drawing.Image)(resources.GetObject("pbGrafico.Image")));
             this.pbGrafico.Location = new System.Drawing.Point(12, 12);
             this.pbGrafico.Name = "pbGrafico";
             this.pbGrafico.Size = new System.Drawing.Size(134, 162);
@@ -265,29 +266,16 @@ namespace pryDemeterDatos
             this.gbOrdenar.TabStop = false;
             this.gbOrdenar.Text = "Forma de ordenar";
             // 
-            // rbInOrdenAsc
+            // rbPostOrden
             // 
-            this.rbInOrdenAsc.AutoSize = true;
-            this.rbInOrdenAsc.Checked = true;
-            this.rbInOrdenAsc.Location = new System.Drawing.Point(9, 20);
-            this.rbInOrdenAsc.Name = "rbInOrdenAsc";
-            this.rbInOrdenAsc.Size = new System.Drawing.Size(81, 17);
-            this.rbInOrdenAsc.TabIndex = 0;
-            this.rbInOrdenAsc.TabStop = true;
-            this.rbInOrdenAsc.Text = "InOrdenAsc";
-            this.rbInOrdenAsc.UseVisualStyleBackColor = true;
-            this.rbInOrdenAsc.CheckedChanged += new System.EventHandler(this.rbInOrdenAsc_CheckedChanged);
-            // 
-            // rbInOrdenDes
-            // 
-            this.rbInOrdenDes.AutoSize = true;
-            this.rbInOrdenDes.Location = new System.Drawing.Point(7, 52);
-            this.rbInOrdenDes.Name = "rbInOrdenDes";
-            this.rbInOrdenDes.Size = new System.Drawing.Size(82, 17);
-            this.rbInOrdenDes.TabIndex = 1;
-            this.rbInOrdenDes.Text = "InOrdenDes";
-            this.rbInOrdenDes.UseVisualStyleBackColor = true;
-            this.rbInOrdenDes.CheckedChanged += new System.EventHandler(this.rbInOrdenDes_CheckedChanged);
+            this.rbPostOrden.AutoSize = true;
+            this.rbPostOrden.Location = new System.Drawing.Point(99, 52);
+            this.rbPostOrden.Name = "rbPostOrden";
+            this.rbPostOrden.Size = new System.Drawing.Size(75, 17);
+            this.rbPostOrden.TabIndex = 3;
+            this.rbPostOrden.Text = "PostOrden";
+            this.rbPostOrden.UseVisualStyleBackColor = true;
+            this.rbPostOrden.CheckedChanged += new System.EventHandler(this.rbPostOrden_CheckedChanged);
             // 
             // rbPreOrden
             // 
@@ -300,16 +288,29 @@ namespace pryDemeterDatos
             this.rbPreOrden.UseVisualStyleBackColor = true;
             this.rbPreOrden.CheckedChanged += new System.EventHandler(this.rbPreOrden_CheckedChanged);
             // 
-            // rbPostOrden
+            // rbInOrdenDes
             // 
-            this.rbPostOrden.AutoSize = true;
-            this.rbPostOrden.Location = new System.Drawing.Point(99, 52);
-            this.rbPostOrden.Name = "rbPostOrden";
-            this.rbPostOrden.Size = new System.Drawing.Size(75, 17);
-            this.rbPostOrden.TabIndex = 3;
-            this.rbPostOrden.Text = "PostOrden";
-            this.rbPostOrden.UseVisualStyleBackColor = true;
-            this.rbPostOrden.CheckedChanged += new System.EventHandler(this.rbPostOrden_CheckedChanged);
+            this.rbInOrdenDes.AutoSize = true;
+            this.rbInOrdenDes.Location = new System.Drawing.Point(7, 52);
+            this.rbInOrdenDes.Name = "rbInOrdenDes";
+            this.rbInOrdenDes.Size = new System.Drawing.Size(82, 17);
+            this.rbInOrdenDes.TabIndex = 1;
+            this.rbInOrdenDes.Text = "InOrdenDes";
+            this.rbInOrdenDes.UseVisualStyleBackColor = true;
+            this.rbInOrdenDes.CheckedChanged += new System.EventHandler(this.rbInOrdenDes_CheckedChanged);
+            // 
+            // rbInOrdenAsc
+            // 
+            this.rbInOrdenAsc.AutoSize = true;
+            this.rbInOrdenAsc.Checked = true;
+            this.rbInOrdenAsc.Location = new System.Drawing.Point(9, 20);
+            this.rbInOrdenAsc.Name = "rbInOrdenAsc";
+            this.rbInOrdenAsc.Size = new System.Drawing.Size(81, 17);
+            this.rbInOrdenAsc.TabIndex = 0;
+            this.rbInOrdenAsc.TabStop = true;
+            this.rbInOrdenAsc.Text = "InOrdenAsc";
+            this.rbInOrdenAsc.UseVisualStyleBackColor = true;
+            this.rbInOrdenAsc.CheckedChanged += new System.EventHandler(this.rbInOrdenAsc_CheckedChanged);
             // 
             // cmdEquilibrar
             // 

@@ -16,7 +16,7 @@ namespace pryDemeterDatos
             get { return Inicio;}
             set { Inicio = value;}
         }
-        //jajajaaj
+        
         public void Agregar(clsNodo Nvo)
         {
             Nvo.Izquierdo = null;
@@ -68,11 +68,11 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             InOrdenAsc(Grilla, Raiz);
         }
-        public void RecorrerInOrdenAsc(TreeView Tree)
-        {
-            Tree.Nodes.Clear();
-            InOrdenAsc(Tree, Raiz);
-        }
+        //public void RecorrerInOrdenAsc(TreeView Tree)
+        //{
+        //    Tree.Nodes.Clear();
+        //    InOrdenAsc(Tree, Raiz);
+        //}
 
         //Comienzan los RecorrerInOrdenDes
         public void RecorrerInOrdenDes(ListBox Lista)
@@ -90,11 +90,11 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             InOrdenDes(Grilla, Raiz);
         }
-        public void RecorrerInOrdenDes(TreeView Tree)
-        {
-            Tree.Nodes.Clear();
-            InOrdenDes(Tree, Raiz);
-        }
+        //public void RecorrerInOrdenDes(TreeView Tree)
+        //{
+        //    Tree.Nodes.Clear();
+        //    InOrdenDes(Tree, Raiz);
+        //}
 
         //Comienzan los RecorrerPreOrden
         public void RecorrerPreOrden(ListBox Lista)
@@ -112,11 +112,11 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             PreOrden(Grilla, Raiz);
         }
-        public void RecorrerPreOrden(TreeView Tree)
-        {
-            Tree.Nodes.Clear();
-            PreOrden(Tree, Raiz);
-        }
+        //public void RecorrerPreOrden(TreeView Tree)
+        //{
+        //    Tree.Nodes.Clear();
+        //    PreOrden(Tree, Raiz);
+        //}
 
         //Comienzan los RecorrerPostOrden
         public void RecorrerPostOrden(ListBox Lista)
@@ -134,11 +134,11 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             PostOrden(Grilla, Raiz);
         }
-        public void RecorrerPostOrden(TreeView Tree)
-        {
-            Tree.Nodes.Clear();
-            PostOrden(Tree, Raiz);
-        }
+        //public void RecorrerPostOrden(TreeView Tree)
+        //{
+        //    Tree.Nodes.Clear();
+        //    PostOrden(Tree, Raiz);
+        //}
 
 
 
