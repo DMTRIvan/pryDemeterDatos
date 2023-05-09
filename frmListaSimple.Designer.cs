@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaSimple));
             this.mrcListado = new System.Windows.Forms.GroupBox();
             this.lbListado = new System.Windows.Forms.ListBox();
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
@@ -216,10 +217,10 @@
             // 
             // pbGrafico
             // 
-            this.pbGrafico.Image = global::pryDemeterDatos.Properties.Resources.pila;
+            this.pbGrafico.Image = ((System.Drawing.Image)(resources.GetObject("pbGrafico.Image")));
             this.pbGrafico.Location = new System.Drawing.Point(12, 12);
             this.pbGrafico.Name = "pbGrafico";
-            this.pbGrafico.Size = new System.Drawing.Size(134, 162);
+            this.pbGrafico.Size = new System.Drawing.Size(158, 162);
             this.pbGrafico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGrafico.TabIndex = 8;
             this.pbGrafico.TabStop = false;

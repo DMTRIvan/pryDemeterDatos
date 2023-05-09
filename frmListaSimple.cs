@@ -19,19 +19,28 @@ namespace pryDemeterDatos
         clsListaSimple ListaDePersonas = new clsListaSimple();
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo ObjNodo = new clsNodo();
-            ObjNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
-            ObjNodo.Nombre = txtNombre.Text;
-            ObjNodo.Tramite = txtTramite.Text;
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            {
+                clsNodo ObjNodo = new clsNodo();
+                ObjNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
+                ObjNodo.Nombre = txtNombre.Text;
+                ObjNodo.Tramite = txtTramite.Text;
 
-            ListaDePersonas.Agregar(ObjNodo);
-            ListaDePersonas.Recorrer(dgvGrilla);
-            ListaDePersonas.Recorrer(lbListado);
-            lstCodigo.Text = "";
-            ListaDePersonas.Recorrer(lstCodigo);
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            txtTramite.Text = "";
+                ListaDePersonas.Agregar(ObjNodo);
+                ListaDePersonas.Recorrer(dgvGrilla);
+                ListaDePersonas.Recorrer(lbListado);
+                lstCodigo.Text = "";
+                ListaDePersonas.Recorrer(lstCodigo);
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtTramite.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos");
+
+            }
+            
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)

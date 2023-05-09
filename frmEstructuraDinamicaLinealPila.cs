@@ -19,17 +19,25 @@ namespace pryDemeterDatos
         clsPila PilaDePersonas = new clsPila();
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo ObjNodo = new clsNodo();
-            ObjNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
-            ObjNodo.Nombre = txtNombre.Text;
-            ObjNodo.Tramite = txtTramite.Text;
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            {
+                clsNodo ObjNodo = new clsNodo();
+                ObjNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
+                ObjNodo.Nombre = txtNombre.Text;
+                ObjNodo.Tramite = txtTramite.Text;
 
-            PilaDePersonas.Agregar(ObjNodo);
-            PilaDePersonas.Recorrer(dgvGrilla);
-            PilaDePersonas.Recorrer(lbListado);
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            txtTramite.Text = "";
+                PilaDePersonas.Agregar(ObjNodo);
+                PilaDePersonas.Recorrer(dgvGrilla);
+                PilaDePersonas.Recorrer(lbListado);
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtTramite.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos");
+            }
+            
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -47,6 +55,7 @@ namespace pryDemeterDatos
             }
             else
             {
+                MessageBox.Show("La lista esta vacía");
                 lblCodigo1.Text = "";
                 lblNombre1.Text = "";
                 lblTramite1.Text = "";

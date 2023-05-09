@@ -19,44 +19,52 @@ namespace pryDemeterDatos
         clsArbolBinario objArbol = new clsArbolBinario();
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo Persona = new clsNodo();
-            Persona.Codigo = Convert.ToInt32(txtCodigo.Text);
-            Persona.Nombre = txtNombre.Text;
-            Persona.Tramite = txtTramite.Text;
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            {
+                clsNodo Persona = new clsNodo();
+                Persona.Codigo = Convert.ToInt32(txtCodigo.Text);
+                Persona.Nombre = txtNombre.Text;
+                Persona.Tramite = txtTramite.Text;
 
-            objArbol.Agregar(Persona);
-            if (rbInOrdenAsc.Checked == true)
-            {
-                objArbol.RecorrerInOrdenAsc(lbListado);
-                objArbol.RecorrerInOrdenAsc(lstCodigo);
-                objArbol.RecorrerInOrdenAsc(dgvGrilla);
-                //objArbol.RecorrerInOrdenAsc(tvLista);
-            }
-            if (rbInOrdenDes.Checked == true)
-            {
-                objArbol.RecorrerInOrdenDes(lbListado);
-                objArbol.RecorrerInOrdenDes(lstCodigo);
-                objArbol.RecorrerInOrdenDes(dgvGrilla);
-                //objArbol.RecorrerInOrdenDes(tvLista);
-            }
-            if (rbPreOrden.Checked == true)
-            {
-                objArbol.RecorrerPreOrden(lbListado);
-                objArbol.RecorrerPreOrden(lstCodigo);
-                objArbol.RecorrerPreOrden(dgvGrilla);
-                //objArbol.RecorrerPreOrden(tvLista);
-            }
-            if (rbPostOrden.Checked == true)
-            {
-                objArbol.RecorrerPostOrden(lbListado);
-                objArbol.RecorrerPostOrden(lstCodigo);
-                objArbol.RecorrerPostOrden(dgvGrilla);
-                //objArbol.RecorrerPostOrden(tvLista);
-            }
+                objArbol.Agregar(Persona);
+                if (rbInOrdenAsc.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenAsc(lbListado);
+                    objArbol.RecorrerInOrdenAsc(lstCodigo);
+                    objArbol.RecorrerInOrdenAsc(dgvGrilla);
+                    //objArbol.RecorrerInOrdenAsc(tvLista);
+                }
+                if (rbInOrdenDes.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenDes(lbListado);
+                    objArbol.RecorrerInOrdenDes(lstCodigo);
+                    objArbol.RecorrerInOrdenDes(dgvGrilla);
+                    //objArbol.RecorrerInOrdenDes(tvLista);
+                }
+                if (rbPreOrden.Checked == true)
+                {
+                    objArbol.RecorrerPreOrden(lbListado);
+                    objArbol.RecorrerPreOrden(lstCodigo);
+                    objArbol.RecorrerPreOrden(dgvGrilla);
+                    //objArbol.RecorrerPreOrden(tvLista);
+                }
+                if (rbPostOrden.Checked == true)
+                {
+                    objArbol.RecorrerPostOrden(lbListado);
+                    objArbol.RecorrerPostOrden(lstCodigo);
+                    objArbol.RecorrerPostOrden(dgvGrilla);
+                    //objArbol.RecorrerPostOrden(tvLista);
+                }
 
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-            txtTramite.Text = "";
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtTramite.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos", "Error catastrófico");
+            }
+            
         }
 
         private void rbInOrdenDes_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +113,11 @@ namespace pryDemeterDatos
         }
 
         private void dgvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmdEliminar_Click(object sender, EventArgs e)
         {
 
         }

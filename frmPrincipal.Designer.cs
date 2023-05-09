@@ -52,7 +52,7 @@
             this.noLinealesToolStripMenuItem});
             this.msPantallaDeInicio.Location = new System.Drawing.Point(0, 0);
             this.msPantallaDeInicio.Name = "msPantallaDeInicio";
-            this.msPantallaDeInicio.Size = new System.Drawing.Size(280, 24);
+            this.msPantallaDeInicio.Size = new System.Drawing.Size(397, 24);
             this.msPantallaDeInicio.TabIndex = 0;
             this.msPantallaDeInicio.Text = "menuStrip1";
             // 
@@ -93,14 +93,14 @@
             // pilasToolStripMenuItem
             // 
             this.pilasToolStripMenuItem.Name = "pilasToolStripMenuItem";
-            this.pilasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pilasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.pilasToolStripMenuItem.Text = "Pilas";
             this.pilasToolStripMenuItem.Click += new System.EventHandler(this.pilasToolStripMenuItem_Click);
             // 
             // colasToolStripMenuItem
             // 
             this.colasToolStripMenuItem.Name = "colasToolStripMenuItem";
-            this.colasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.colasToolStripMenuItem.Text = "Colas";
             this.colasToolStripMenuItem.Click += new System.EventHandler(this.colasToolStripMenuItem_Click);
             // 
@@ -110,7 +110,7 @@
             this.simpleToolStripMenuItem,
             this.dobleToolStripMenuItem});
             this.listasToolStripMenuItem.Name = "listasToolStripMenuItem";
-            this.listasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listasToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.listasToolStripMenuItem.Text = "Listas enlazadas";
             // 
             // simpleToolStripMenuItem
@@ -139,21 +139,22 @@
             // arbolBinarioToolStripMenuItem
             // 
             this.arbolBinarioToolStripMenuItem.Name = "arbolBinarioToolStripMenuItem";
-            this.arbolBinarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.arbolBinarioToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.arbolBinarioToolStripMenuItem.Text = "Arbol binario";
             this.arbolBinarioToolStripMenuItem.Click += new System.EventHandler(this.arbolBinarioToolStripMenuItem_Click);
             // 
             // grafosToolStripMenuItem
             // 
             this.grafosToolStripMenuItem.Name = "grafosToolStripMenuItem";
-            this.grafosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grafosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.grafosToolStripMenuItem.Text = "Grafos";
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 123);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(397, 198);
             this.Controls.Add(this.msPantallaDeInicio);
             this.MainMenuStrip = this.msPantallaDeInicio;
             this.Name = "frmPrincipal";

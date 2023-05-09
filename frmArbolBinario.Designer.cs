@@ -56,7 +56,6 @@ namespace pryDemeterDatos
             this.rbPreOrden = new System.Windows.Forms.RadioButton();
             this.rbInOrdenDes = new System.Windows.Forms.RadioButton();
             this.rbInOrdenAsc = new System.Windows.Forms.RadioButton();
-            this.cmdEquilibrar = new System.Windows.Forms.Button();
             this.mrcListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -142,6 +141,7 @@ namespace pryDemeterDatos
             this.cmdEliminar.TabIndex = 3;
             this.cmdEliminar.Text = "Eliminar";
             this.cmdEliminar.UseVisualStyleBackColor = true;
+            this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // lblCodigoEliminar
             // 
@@ -239,9 +239,9 @@ namespace pryDemeterDatos
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tvLista);
-            this.groupBox2.Location = new System.Drawing.Point(612, 59);
+            this.groupBox2.Location = new System.Drawing.Point(612, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 306);
+            this.groupBox2.Size = new System.Drawing.Size(200, 353);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Arbol";
@@ -250,7 +250,7 @@ namespace pryDemeterDatos
             // 
             this.tvLista.Location = new System.Drawing.Point(6, 19);
             this.tvLista.Name = "tvLista";
-            this.tvLista.Size = new System.Drawing.Size(188, 271);
+            this.tvLista.Size = new System.Drawing.Size(188, 318);
             this.tvLista.TabIndex = 21;
             // 
             // gbOrdenar
@@ -312,21 +312,11 @@ namespace pryDemeterDatos
             this.rbInOrdenAsc.UseVisualStyleBackColor = true;
             this.rbInOrdenAsc.CheckedChanged += new System.EventHandler(this.rbInOrdenAsc_CheckedChanged);
             // 
-            // cmdEquilibrar
-            // 
-            this.cmdEquilibrar.Location = new System.Drawing.Point(641, 22);
-            this.cmdEquilibrar.Name = "cmdEquilibrar";
-            this.cmdEquilibrar.Size = new System.Drawing.Size(154, 23);
-            this.cmdEquilibrar.TabIndex = 21;
-            this.cmdEquilibrar.Text = "Equilibrar";
-            this.cmdEquilibrar.UseVisualStyleBackColor = true;
-            // 
             // frmArbolBinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 381);
-            this.Controls.Add(this.cmdEquilibrar);
             this.Controls.Add(this.gbOrdenar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.mrcListado);
@@ -377,6 +367,5 @@ namespace pryDemeterDatos
         private System.Windows.Forms.RadioButton rbPreOrden;
         private System.Windows.Forms.RadioButton rbInOrdenDes;
         private System.Windows.Forms.RadioButton rbInOrdenAsc;
-        private System.Windows.Forms.Button cmdEquilibrar;
     }
 }

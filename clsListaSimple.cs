@@ -20,7 +20,7 @@ namespace pryDemeterDatos
             }
             else
             {
-                if(Nuevo.Codigo < Primero.Codigo) //creo que aca puede ir <=
+                if(Nuevo.Codigo <= Primero.Codigo) 
                 {
                     Nuevo.Siguiente = Primero;
                     Primero = Nuevo;

@@ -24,8 +24,8 @@ namespace pryDemeterDatos
         clsListaDoble ListaDePersonas = new clsListaDoble();
         private void cmdAgregar_Click_1(object sender, EventArgs e)
         {
-            
-            
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            {
                 clsNodo ObjNodo = new clsNodo();
                 ObjNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
                 ObjNodo.Nombre = txtNombre.Text;
@@ -50,6 +50,12 @@ namespace pryDemeterDatos
                 txtCodigo.Text = "";
                 txtNombre.Text = "";
                 txtTramite.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos");
+            }
+               
             
         }
 
