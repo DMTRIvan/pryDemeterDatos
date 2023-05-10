@@ -5,18 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace pryDemeterDatos
 {
     class clsArbolBinario
     {
         private clsNodo Inicio;
+        private clsNodo[] Vector = new clsNodo[100];
+        private int i;
+        private int NodoEliminar;
 
         public clsNodo Raiz
         {
             get { return Inicio;}
             set { Inicio = value;}
         }
-        
+
+        public void Equilibrar()
+        {
+            NodoEliminar = default;
+            i = 0;
+            CargarVectorInOrder(Raiz);
+            Raiz = null;
+            EquilibrarArbol(0, i - 1);
+        }
+
+        public void Equilibrar(int Nodo)
+        {
+            NodoEliminar = Nodo;
+            i = 0;
+            CargarVectorInOrder(Raiz);
+            Raiz = null;
+            EquilibrarArbol(0, i - 1);
+        }
+
         public void Agregar(clsNodo Nvo)
         {
             Nvo.Izquierdo = null;
@@ -68,11 +91,15 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             InOrdenAsc(Grilla, Raiz);
         }
-        //public void RecorrerInOrdenAsc(TreeView Tree)
-        //{
-        //    Tree.Nodes.Clear();
-        //    InOrdenAsc(Tree, Raiz);
-        //}
+        public void RecorrerInOrdenAsc(TreeView Tree)
+        {
+            Tree.Nodes.Clear();
+            InOrderAcs(Tree.Nodes, Raiz);
+        }
+        public void RecorrerInOrdenAsc(StreamWriter sw)
+        {
+            InOrdenAscArchivo(sw, Raiz);
+        }
 
         //Comienzan los RecorrerInOrdenDes
         public void RecorrerInOrdenDes(ListBox Lista)
@@ -90,11 +117,10 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             InOrdenDes(Grilla, Raiz);
         }
-        //public void RecorrerInOrdenDes(TreeView Tree)
-        //{
-        //    Tree.Nodes.Clear();
-        //    InOrdenDes(Tree, Raiz);
-        //}
+        public void RecorrerInOrdenDes(StreamWriter sw)
+        {
+            InOrdenDesArchivo(sw, Raiz);
+        }
 
         //Comienzan los RecorrerPreOrden
         public void RecorrerPreOrden(ListBox Lista)
@@ -112,11 +138,10 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             PreOrden(Grilla, Raiz);
         }
-        //public void RecorrerPreOrden(TreeView Tree)
-        //{
-        //    Tree.Nodes.Clear();
-        //    PreOrden(Tree, Raiz);
-        //}
+        public void RecorrerPreOrden(StreamWriter sw)
+        {
+            PreOrdenArchivo(sw, Raiz);
+        }
 
         //Comienzan los RecorrerPostOrden
         public void RecorrerPostOrden(ListBox Lista)
@@ -134,15 +159,10 @@ namespace pryDemeterDatos
             Grilla.Rows.Clear();
             PostOrden(Grilla, Raiz);
         }
-        //public void RecorrerPostOrden(TreeView Tree)
-        //{
-        //    Tree.Nodes.Clear();
-        //    PostOrden(Tree, Raiz);
-        //}
-
-
-
-
+        public void RecorrerPostOrden(StreamWriter sw)
+        {
+            PostOrdenArchivo(sw, Raiz);
+        }
 
 
         //Comienzan los ListBox
@@ -305,50 +325,100 @@ namespace pryDemeterDatos
         }
 
 
-        ////Comienzan los TreeView
-        ////in orden ascendente para TreeView
-        //public void InOrdenAsc(TreeView Tree, clsNodo R)
-        //{
-        //    if (R.Izquierdo != null)
-        //    {
-        //        InOrdenAsc(Tree, R.Izquierdo);
-        //    }
-        //    Tree.Nodes.Add(R.Codigo.ToString());
-        //    if (R.Derecho != null)
-        //    {
-        //        InOrdenAsc(Tree, R.Derecho);
-        //    }
-        //}
+        //Comienzan los archivos
+        //in orden ascendente para Archivo
+        public void InOrdenAscArchivo(StreamWriter NomArchi, clsNodo R)
+        {
+            if (R.Izquierdo != null) InOrdenAscArchivo(NomArchi, R.Izquierdo);
+            NomArchi.Write(R.Codigo);
+            NomArchi.Write(" ; " + " ");
+            NomArchi.Write(R.Nombre);
+            NomArchi.Write(" ; ");
+            NomArchi.Write(R.Tramite);
+            NomArchi.Write("\n");
+            if (R.Derecho != null) InOrdenAscArchivo(NomArchi, R.Derecho);
+        }
+        //in orden descendente para Archivo
+        public void InOrdenDesArchivo(StreamWriter NomArchi, clsNodo R)
+        {
+            if (R.Derecho != null) InOrdenDesArchivo(NomArchi, R.Derecho);
+            NomArchi.Write(R.Codigo);
+            NomArchi.Write(" ; " + " ");
+            NomArchi.Write(R.Nombre);
+            NomArchi.Write(" ; ");
+            NomArchi.Write(R.Tramite);
+            NomArchi.Write("\n");
+            if (R.Izquierdo != null) InOrdenDesArchivo(NomArchi, R.Izquierdo);
+        }
+        //Pre orden para Archivo (R-I-D)
+        public void PreOrdenArchivo(StreamWriter NomArchi, clsNodo R)
+        {
+            NomArchi.Write(R.Codigo);
+            NomArchi.Write(" ; " + " ");
+            NomArchi.Write(R.Nombre);
+            NomArchi.Write(" ; ");
+            NomArchi.Write(R.Tramite);
+            NomArchi.Write("\n");
+            if (R.Izquierdo != null) PreOrdenArchivo(NomArchi, R.Izquierdo);
+            if (R.Derecho != null) PreOrdenArchivo(NomArchi, R.Derecho);
+        }
+        //Post orden para Archivo (I-D-R)
+        public void PostOrdenArchivo(StreamWriter NomArchi, clsNodo R)
+        {
+            if (R.Izquierdo != null) PostOrdenArchivo(NomArchi, R.Izquierdo);
+            if (R.Derecho != null) PostOrdenArchivo(NomArchi, R.Derecho);
+            NomArchi.Write(R.Codigo);
+            NomArchi.Write(" ; " + " ");
+            NomArchi.Write(R.Nombre);
+            NomArchi.Write(" ; ");
+            NomArchi.Write(R.Tramite);
+            NomArchi.Write("\n");
+        }
 
-        ////in orden descendente para TreeView
-        //public void InOrdenDes(TreeView Tree, clsNodo R)
-        //{
 
-        //    if (R.Derecho != null)
-        //    {
-        //        InOrdenDes(Tree, R.Derecho);
-        //    }
-        //    Tree.Nodes.Add(R.Codigo.ToString());
-        //    if (R.Izquierdo != null)
-        //    {
-        //        InOrdenDes(Tree, R.Izquierdo);
-        //    }
-        //}
-        ////Pre orden para TreeView (R-I-D)
-        //public void PreOrden(TreeView Tree, clsNodo R)
-        //{
-        //    Tree.Nodes.Add(R.Codigo.ToString());
-        //    if (R.Izquierdo != null) PreOrden(Tree, R.Izquierdo);
-        //    if (R.Derecho != null) PreOrden(Tree, R.Derecho);
-        //}
+        //Comienzan los TreeView
+        //in orden ascendente para TreeView
+        private void InOrderAcs(TreeNodeCollection NodoPadre, clsNodo Raiz)
+        {
+            TreeNode NuevoNodo = NodoPadre.Add(Raiz.Codigo.ToString());
+            if (Raiz.Izquierdo != null) InOrderAcs(NuevoNodo.Nodes, Raiz.Izquierdo);
+            if (Raiz.Derecho != null) InOrderAcs(NuevoNodo.Nodes, Raiz.Derecho); 
+        }
 
-        ////Post orden para TreeView (I-D-R)
-        //public void PostOrden(TreeView Tree, clsNodo R)
+        //public void InOrdenAsc(TreeView Tree, clsNodo R) //Todo este codigo esta mal, no lo ordena correctamente
         //{
-        //    if (R.Izquierdo != null) PostOrden(Tree, R.Izquierdo);
-        //    if (R.Derecho != null) PostOrden(Tree, R.Derecho);
         //    Tree.Nodes.Add(R.Codigo.ToString());
+        //    if (R.Izquierdo != null) { InOrdenAsc(Tree, R.Izquierdo);}
+        //    if (R.Derecho != null){ InOrdenAsc(Tree, R.Derecho);}
         //}
+        private void CargarVectorInOrder(clsNodo NodoPadre)
+        {
+            if (NodoPadre.Izquierdo != null)
+            {
+                CargarVectorInOrder(NodoPadre.Izquierdo);
+            }
+            if (NodoPadre.Codigo != NodoEliminar)
+            {
+                Vector[i] = NodoPadre;
+                i++;
+            }
+            if (NodoPadre.Derecho != null)
+            {
+                CargarVectorInOrder(NodoPadre.Derecho);
+            }
+        }
+
+        private void EquilibrarArbol(int ini, int fin)
+        {
+            int m = (ini + fin) / 2;
+            if (ini <= fin)
+            {
+                Agregar(Vector[m]);
+                EquilibrarArbol(ini, m - 1);
+                EquilibrarArbol(m + 1, fin);
+            }
+        }
+
 
 
 

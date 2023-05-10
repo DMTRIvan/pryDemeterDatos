@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,34 +28,12 @@ namespace pryDemeterDatos
                 Persona.Tramite = txtTramite.Text;
 
                 objArbol.Agregar(Persona);
-                if (rbInOrdenAsc.Checked == true)
+
+                if (objArbol.Raiz != null)
                 {
-                    objArbol.RecorrerInOrdenAsc(lbListado);
-                    objArbol.RecorrerInOrdenAsc(lstCodigo);
-                    objArbol.RecorrerInOrdenAsc(dgvGrilla);
-                    //objArbol.RecorrerInOrdenAsc(tvLista);
+                    objArbol.Equilibrar();
                 }
-                if (rbInOrdenDes.Checked == true)
-                {
-                    objArbol.RecorrerInOrdenDes(lbListado);
-                    objArbol.RecorrerInOrdenDes(lstCodigo);
-                    objArbol.RecorrerInOrdenDes(dgvGrilla);
-                    //objArbol.RecorrerInOrdenDes(tvLista);
-                }
-                if (rbPreOrden.Checked == true)
-                {
-                    objArbol.RecorrerPreOrden(lbListado);
-                    objArbol.RecorrerPreOrden(lstCodigo);
-                    objArbol.RecorrerPreOrden(dgvGrilla);
-                    //objArbol.RecorrerPreOrden(tvLista);
-                }
-                if (rbPostOrden.Checked == true)
-                {
-                    objArbol.RecorrerPostOrden(lbListado);
-                    objArbol.RecorrerPostOrden(lstCodigo);
-                    objArbol.RecorrerPostOrden(dgvGrilla);
-                    //objArbol.RecorrerPostOrden(tvLista);
-                }
+                recorridos();
 
                 txtCodigo.Text = "";
                 txtNombre.Text = "";
@@ -62,11 +41,46 @@ namespace pryDemeterDatos
             }
             else
             {
-                MessageBox.Show("Ingrese todos los datos", "Error catastrófico");
+                MessageBox.Show("Ingrese todos los datos", "Error");
             }
             
         }
+        public void recorridos()
+        {
+            if (objArbol.Raiz != null)
+            {
+                objArbol.RecorrerInOrdenAsc(tvLista);
+                if (rbInOrdenAsc.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenAsc(lbListado);
+                    objArbol.RecorrerInOrdenAsc(lstCodigo);
+                    objArbol.RecorrerInOrdenAsc(dgvGrilla);
 
+                }
+                if (rbInOrdenDes.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenDes(lbListado);
+                    objArbol.RecorrerInOrdenDes(lstCodigo);
+                    objArbol.RecorrerInOrdenDes(dgvGrilla);
+
+                }
+                if (rbPreOrden.Checked == true)
+                {
+                    objArbol.RecorrerPreOrden(lbListado);
+                    objArbol.RecorrerPreOrden(lstCodigo);
+                    objArbol.RecorrerPreOrden(dgvGrilla);
+
+                }
+                if (rbPostOrden.Checked == true)
+                {
+                    objArbol.RecorrerPostOrden(lbListado);
+                    objArbol.RecorrerPostOrden(lstCodigo);
+                    objArbol.RecorrerPostOrden(dgvGrilla);
+
+                }
+            }
+            
+        }
         private void rbInOrdenDes_CheckedChanged(object sender, EventArgs e)
         {
             if (objArbol.Raiz != null)
@@ -74,7 +88,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerInOrdenDes(lbListado);
             objArbol.RecorrerInOrdenDes(lstCodigo);
             objArbol.RecorrerInOrdenDes(dgvGrilla);
-            //objArbol.RecorrerInOrdenDes(tvLista);
+            
             }
         }
 
@@ -85,7 +99,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerInOrdenAsc(lbListado);
             objArbol.RecorrerInOrdenAsc(lstCodigo);
             objArbol.RecorrerInOrdenAsc(dgvGrilla);
-            //objArbol.RecorrerInOrdenAsc(tvLista);
+                objArbol.RecorrerInOrdenAsc(tvLista);
             }
         }
 
@@ -96,7 +110,7 @@ namespace pryDemeterDatos
             objArbol.RecorrerPreOrden(lbListado);
             objArbol.RecorrerPreOrden(lstCodigo);
             objArbol.RecorrerPreOrden(dgvGrilla);
-            //objArbol.RecorrerPreOrden(tvLista);
+            
             }
         }
 
@@ -107,7 +121,7 @@ namespace pryDemeterDatos
                 objArbol.RecorrerPostOrden(lbListado);
                 objArbol.RecorrerPostOrden(lstCodigo);
                 objArbol.RecorrerPostOrden(dgvGrilla);
-                //objArbol.RecorrerPostOrden(tvLista);
+                
             }
            
         }
@@ -119,7 +133,68 @@ namespace pryDemeterDatos
 
         private void cmdEliminar_Click(object sender, EventArgs e)
         {
+            if (objArbol.Raiz != null && lstCodigo.SelectedIndex != -1)
+            {
+                objArbol.Equilibrar(Convert.ToInt32(lstCodigo.SelectedItem));
+                recorridos();
 
+                if (objArbol.Raiz == null)
+                {
+                    
+                    dgvGrilla.Rows.Clear();
+                    lstCodigo.Items.Clear();
+                    lbListado.Items.Clear();
+                    tvLista.Nodes.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontro ningun dato", "Error");
+            }
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+                MessageBox.Show("En el campo Codigo solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void cmdGrabar_Click(object sender, EventArgs e)
+        {
+            if (objArbol.Raiz != null)
+            {
+
+                StreamWriter sw = new StreamWriter("Arbol.csv");
+                if (rbInOrdenAsc.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenAsc(sw);
+
+                }
+                if (rbInOrdenDes.Checked == true)
+                {
+                    objArbol.RecorrerInOrdenDes(sw);
+
+                }
+                if (rbPreOrden.Checked == true)
+                {
+                    objArbol.RecorrerPreOrden(sw);
+
+                }
+                if (rbPostOrden.Checked == true)
+                {
+                    objArbol.RecorrerPostOrden(sw);
+
+                }
+                sw.Dispose();
+                MessageBox.Show("Se creo con exito el archivo!!", "Aviso");
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun dato cargado, no se puede crear el archivo", "Aviso");
+            }
         }
     }
 }
