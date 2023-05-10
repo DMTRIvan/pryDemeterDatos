@@ -79,6 +79,7 @@ namespace pryDemeterDatos
             // 
             // lbListado
             // 
+            this.lbListado.BackColor = System.Drawing.Color.LightCyan;
             this.lbListado.FormattingEnabled = true;
             this.lbListado.Location = new System.Drawing.Point(6, 24);
             this.lbListado.Name = "lbListado";
@@ -250,6 +251,7 @@ namespace pryDemeterDatos
             // 
             // tvLista
             // 
+            this.tvLista.BackColor = System.Drawing.Color.LightCyan;
             this.tvLista.Location = new System.Drawing.Point(6, 19);
             this.tvLista.Name = "tvLista";
             this.tvLista.Size = new System.Drawing.Size(188, 295);
@@ -316,18 +318,20 @@ namespace pryDemeterDatos
             // 
             // cmdGrabar
             // 
+            this.cmdGrabar.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.cmdGrabar.Location = new System.Drawing.Point(618, 338);
             this.cmdGrabar.Name = "cmdGrabar";
             this.cmdGrabar.Size = new System.Drawing.Size(188, 23);
             this.cmdGrabar.TabIndex = 21;
             this.cmdGrabar.Text = "Grabar archivo";
-            this.cmdGrabar.UseVisualStyleBackColor = true;
+            this.cmdGrabar.UseVisualStyleBackColor = false;
             this.cmdGrabar.Click += new System.EventHandler(this.cmdGrabar_Click);
             // 
             // frmArbolBinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(824, 373);
             this.Controls.Add(this.cmdGrabar);
             this.Controls.Add(this.gbOrdenar);
