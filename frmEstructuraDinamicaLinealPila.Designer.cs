@@ -277,6 +277,7 @@
             this.Controls.Add(this.mrcNuevoElemento);
             this.Controls.Add(this.pbGrafico);
             this.Name = "frmEstructuraDinamicaLinealPila";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura Pila";
             this.mrcListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();

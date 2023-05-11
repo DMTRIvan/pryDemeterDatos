@@ -341,6 +341,7 @@ namespace pryDemeterDatos
             this.Controls.Add(this.mrcNuevoElemento);
             this.Controls.Add(this.pbGrafico);
             this.Name = "frmArbolBinario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura Ramificada - Arbol Binario";
             this.mrcListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();

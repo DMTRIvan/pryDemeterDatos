@@ -83,6 +83,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmDatosProgramador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos del programador";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

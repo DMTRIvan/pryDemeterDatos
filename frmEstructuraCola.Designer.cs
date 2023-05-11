@@ -281,6 +281,7 @@
             this.Controls.Add(this.mrcNuevoElemento);
             this.Controls.Add(this.pbGrafico);
             this.Name = "frmEstructuraCola";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura Dinámica Lineal - Cola";
             this.Load += new System.EventHandler(this.frmEstructuraCola_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbGrafico)).EndInit();

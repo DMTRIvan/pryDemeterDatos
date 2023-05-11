@@ -237,6 +237,7 @@
             this.Controls.Add(this.mrcNuevoElemento);
             this.Controls.Add(this.pbGrafico);
             this.Name = "frmListaSimple";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista enlazada simple";
             this.mrcListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();

@@ -277,6 +277,7 @@
             this.Controls.Add(this.mrcNuevoElemento);
             this.Controls.Add(this.pbGrafico);
             this.Name = "frmListaDoble";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista Doble";
             this.Load += new System.EventHandler(this.frmListaDoble_Load);
             this.mrcListado.ResumeLayout(false);
